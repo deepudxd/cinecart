@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
-import { Film, ShoppingCart, LogOut, Shield } from "lucide-react";
+import { Film, ShoppingCart, LogOut, Shield, Receipt } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -25,6 +25,9 @@ const Navbar = () => {
                   <Shield className="w-4 h-4 mr-1" /> Admin
                 </Button>
               )}
+              <Button variant="ghost" size="sm" onClick={() => navigate("/my-orders")}>
+                <Receipt className="w-4 h-4 mr-1" /> My Orders
+              </Button>
               <Button variant="ghost" size="sm" onClick={() => navigate("/checkout")} className="relative">
                 <ShoppingCart className="w-5 h-5" />
                 {itemCount > 0 && (

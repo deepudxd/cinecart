@@ -31,7 +31,7 @@ const MovieDetails = () => {
     const fetch = async () => {
       const [movieRes, showsRes] = await Promise.all([
         supabase.from("movies").select("*").eq("id", id!).single(),
-        supabase.from("shows").select("*").eq("movie_id", id!).gte("show_time", new Date().toISOString()).order("show_time"),
+        supabase.from("shows").select("*").eq("movie_id", id!).order("show_time"),
       ]);
       if (movieRes.data) setMovie(movieRes.data);
       if (showsRes.data) setShows(showsRes.data);
